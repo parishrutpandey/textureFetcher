@@ -1,0 +1,60 @@
+* DONE Send a GET to ambientcg using httpclient.
+CLOSED: [2024-05-31 Fri 19:06]
+- Format is https://ambientcg.com/api/v2/full_json?q=floor&include=imageData
+** DONE Async programming
+CLOSED: [2024-05-31 Fri 19:05]
+Understand async programming in csharp.
+Understood basics.
+Await keyword returns control.
+* DONE Send a GET to ambientcg using httpclient.
+CLOSED: [2024-05-31 Fri 19:06]
+- Format is https://ambientcg.com/api/v2/full_json?q=floor&include=imageData
+** DONE Async programming
+CLOSED: [2024-05-31 Fri 19:05]
+Understand async programming in csharp.
+Understood basics.
+Await keyword returns control.
+* DONE Imagemagick
+CLOSED: [2024-05-31 Fri 23:56]
+Integrate imagemagick for image processing needs.
+** DONE Version
+CLOSED: [2024-05-31 Fri 22:48]
+Which imagemagick version to use.
+- Will use 16-hdri-any
+* DONE Understand why json parser not working.
+CLOSED: [2024-06-01 Sat 03:34] Let it not work. Used dict instead.
+Json parser is not parsing "previewImage" field.
+* DONE Get thumbnails.
+CLOSED: [2024-06-01 Sat 03:34] Works.
+Get thumbnail for given asset id on ambientcg.
+* DONE Implement async result fetching.
+CLOSED: [2024-06-04 Tue 08:56]
+* DONE TODO: Fetch CSV
+CLOSED: [2024-06-05 Wed 11:16] CSV too slow. Using usual method instead
+Fetch the csv with all the downloads and use keywords in the csv to fetch
+uh
+
+** DONE Prune duplicates
+CLOSED: [2024-06-05 Wed 11:16]
+* DONE TODO: Create two step ambiencg fetch
+CLOSED: [2024-06-05 Wed 11:17] Too slow. Using default method instead.
+* Grid Layout
+It seems grid control is the most useful control in Avalonia. Figure out how to use it.
+- Yes that is indeed true. Only grid control offers percentage based layouting. Others have a
+  VerticalAlignment (etc) = "Stretch" property value that fills available space.
+* NOTE xaml -> c#
+It seems Avalonia loads xaml properties into c# fields with the same name appended with 'Property' of type
+derived from AvaloniaProperty.
+** MAYBE Understand reactive programming.
+* Node Control Library
+https://github.com/MakesYT/NodifyM.Avalonia
+* DONE Progress reporting.
+CLOSED: [2024-06-06 Thu 04:26]
+Change ITextureProvider methods to accept IProgress object.
+* DONE Data Binding
+CLOSED: [2024-06-04 Tue 06:54]
+Understand Avalonia data binding.
+- Need to set data binding object in code.
+* DONE Implement ambientcg results.
+CLOSED: [2024-06-05 Wed 11:18]
+** DOING Understand async programming csharp.

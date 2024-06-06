@@ -11,7 +11,7 @@ using System.Reflection;
 using System.IO;
 
 
-namespace textureFetcher;
+namespace TextureFetcher;
 
 
 class Program
@@ -31,23 +31,19 @@ class Program
         }
         else
         {
-            // Initialization code. Don't use any Avalonia, third-party APIs or any
-            // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
-            // yet and stuff might break.
             BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(null);
         }
     }
 
 
-    // TODO Refactor
     [STAThread]
     public static void Main(string[] args)
     {
         var rootCommand = new RootCommand();
         var debugRunMethod = new Option<string>
             (name: "--debugrun",
-             description: "Run a defined static method in the assembly by name."
+             description: "Run a static method in the assembly by name."
             );
         rootCommand.AddOption(debugRunMethod);
         rootCommand.SetHandler(_Main_delegate, debugRunMethod);
@@ -62,7 +58,7 @@ class Program
         Trace.Listeners.Add(l);
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .WithInterFont()        
+            .WithInterFont()
             .LogToTrace();
     }
 }

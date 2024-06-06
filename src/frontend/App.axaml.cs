@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace textureFetcher;
+namespace TextureFetcher;
 
 public partial class App : Application
 {
@@ -15,9 +15,11 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+            var ApplicationModel = new Model();
+            MainWindowViewModel MainWindowViewModel = new(ApplicationModel);
             desktop.MainWindow = new MainWindow();
+            desktop.MainWindow.DataContext = MainWindowViewModel;
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 }

@@ -1,12 +1,101 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window
+    xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-    x:Class="textureFetcher.MainWindow"
-    Title="textureFetcher">
-    <StackPanel>
-        <TextBlock Name="texat" Margin="0 5" xml:space="preserve">
-</TextBlock>
-    </StackPanel>
-     </Window>
+    mc:Ignorable="d"
+    d:DesignWidth="1000"
+    d:DesignHeight="750"
+    x:Class="TextureFetcher.MainWindow"
+    Title="TextureFetcher"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="-1"
+    CanResize="True"
+>
+    <Grid
+        Name="MenuAndRestDivider"
+        RowDefinitions="30, *"
+        Margin="4">
+        <Grid
+            Name="Menu"
+            Grid.Row="0"
+        >
+            <Grid
+                ColumnDefinitions=""
+            >
+                <Menu
+                    Grid.Column="0"
+                >
+                    <MenuItem
+                        Header="Menu"
+                    >
+                        <MenuItem
+                            Header="Fetch AmbientCG"
+                            Command="{Binding FetchAmbientCG}"
+                            DragDrop.AllowDrop="True"
+                        >
+                        </MenuItem>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+        </Grid>
+        <Grid
+            Name="Main"
+            Grid.Row="1"
+            ColumnDefinitions="*,2,*"
+            Margin="4"
+        >
+            <Grid
+                Name="SearchAndResults"
+                Grid.Column="0"
+                RowDefinitions="30,*"
+                Margin="4"
+            >
+                <Grid
+                    Name="SearchBar"
+                    Grid.Row="0"
+                    ColumnDefinitions="*,100"
+                >
+                    <TextBox
+                        x:Name="SearchTerm"
+                        Grid.Row="0"
+                        AcceptsReturn="True"
+                    >
+                    </TextBox>
+                    <Button
+                        Name="SearchButton"
+                        Width="100"
+                        Click="ClickHandler"
+                        Grid.Column="1"
+                        HorizontalContentAlignment="Center"
+                    >
+                        Search
+                    </Button>
+                </Grid>
+                <Grid
+                    Name="SearchResults"
+                    Grid.Row="1"
+                >
+                    <DataGrid Name="SearchResultList"
+                        AutoGenerateColumns="True"
+                        CanUserReorderColumns="True"
+                        CanUserResizeColumns="True"
+                        CanUserSortColumns="True"
+                        IsReadOnly="True"
+                        ItemsSource="{Binding SearchResultList}"
+                    />
+                </Grid>
+            </Grid>
+            <GridSplitter
+                Grid.Column="1"
+                ResizeDirection="Columns"
+            />
+            <Panel
+                Name="Preview"
+                Grid.Column="2"
+                Background="White"
+            >
+            </Panel>
+        </Grid>
+    </Grid>
+</Window>
