@@ -81,7 +81,7 @@ partial class Index
             System.IO.Directory.CreateDirectory(AbsoluteDirectory);
         }
 
-        var fileStream = File.Open(AbsoluteFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+        var fileStream = File.Open(AbsoluteFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
         {
             IndexData index = new();
             index.InitializeFromMetadata(data);
@@ -96,11 +96,8 @@ partial class Index
         IndexData? R_IndexData = new IndexData();
 
         var fileStream = File.Open(AbsoluteFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-
         XmlSerializer serializer = new(typeof(IndexData));
         R_IndexData = (IndexData?)serializer.Deserialize(fileStream);
-        progressRatio.Report(0.5f);
-
         return R_IndexData;
     }
 

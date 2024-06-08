@@ -29,12 +29,31 @@ partial class AmbientCGProvider : ITextureProvider
         var metadata = new TextureMetadata();
         metadata.name = element.assetId ?? "";
         metadata.tags = new(element.tags ?? new());
-        metadata.dimensionX = element.dimensionX;
-        metadata.dimensionY = element.dimensionY;
+        metadata.dimensionX = element.dimensionX.Value;
+        metadata.dimensionY = element.dimensionY.Value;
         metadata.identifier = element.assetId ?? "";
         return metadata;
     }
 
+
+    [DebugUsage]
+    public static void test()
+    {
+
+        string _requestString =
+            $"https://ambientcg.com/api/v2/full_json?"
+            + "type=Material&include=tagData,dimensionsData";
+
+
+        Console.WriteLine(new StreamReader(
+            new HttpClient().GetAsync(
+                _requestString
+            )
+            .Result.Content.ReadAsStream()
+        )
+            .ReadToEnd());
+
+    }
 
     public async Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress)
     {
@@ -44,13 +63,16 @@ partial class AmbientCGProvider : ITextureProvider
             int numberOfEntriesReadPerIteration = 250;
             int offset = numberOfEntriesReadPerIteration * iteration;
 
+
+
             HttpJsonResponseTarget? httpDeserializedResponse;
             {
                 string requestString =
-                    @$"https://ambientcg.com/api/v2/full_json?
-                                type=Material&include=tagData,dimensionsData
-                                &limit={numberOfEntriesReadPerIteration}
-                                &offset={offset}";
+                    $"https://ambientcg.com/api/v2/full_json?"
+                    + "type=Material&include=tagData,dimensionsData"
+                    + $"&limit={numberOfEntriesReadPerIteration}"
+                    + $"&offset={offset}";
+
                 httpDeserializedResponse =
                     JsonSerializer.Deserialize<HttpJsonResponseTarget>(
                         JsonDocument.Parse(

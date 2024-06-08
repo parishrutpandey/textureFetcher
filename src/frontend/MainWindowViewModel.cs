@@ -57,6 +57,7 @@ public class MainWindowViewModel
                 {
                     throw new Exception("Index loading failed.");
                 }
+                Console.WriteLine("LOADED");
                 Search(SearchText);
             });
     }
@@ -68,6 +69,12 @@ public class MainWindowViewModel
             throw new Exception("In Memory Cache Null");
 
         List<TextureMetadata> searchResult = Searcher.Search(query, Model.inMemoryCache);
+
+        SearchResultList.Clear();
+        foreach(var result in searchResult)
+        {
+            SearchResultList.Add(MetadataSearchResultItem.GenerateFromMetadataItem(result));
+        }
     }
 
 
