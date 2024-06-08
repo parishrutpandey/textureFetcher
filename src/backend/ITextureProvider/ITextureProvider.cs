@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 namespace TextureFetcher;
 
 
-/// WIP exploratory
-class ambientcgtest
-{
-    [TextureFetcher.DebugUsage]
-    public static void get()
-    {
-
-    }
-}
-
 public interface ITextureProvider
 {
     public string GetWebsiteName();
     public string GetWebsiteUrl();
-    public Task<List<TextureMetadata>> GetTextureMetadata(in IProgress<float> progress);
+    public Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress);
 
     /// <summary>
     /// Image returned should be as large as the <param name="mip"> allows.
@@ -29,13 +19,12 @@ public interface ITextureProvider
     /// Should be less than 50 KB
     /// Should be less than 10 KB
     /// </summary>
-    public Task<Image> GetThumbnail(string identifier, int mip, in IProgress<float> progress);
-
-
+    public Task<Image> GetThumbnail(string identifier, int mip, IProgress<float> progress);
 }
 
+
 /// <summary>
-/// Used by <see cref="GetTextureMetadata"/>
+/// Used by <see cref="ITextureProvider.GetTextureMetadata"/>
 /// </summary>
 public struct TextureMetadata
 {

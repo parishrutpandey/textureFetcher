@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 
 namespace TextureFetcher;
 
+
 public partial class MainWindow : Window
 {
     public MainWindow()

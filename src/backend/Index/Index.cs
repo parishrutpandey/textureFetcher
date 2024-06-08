@@ -8,15 +8,26 @@ using System.Xml.Serialization;
 namespace TextureFetcher;
 
 
-class Index
+partial class Index
 {
+    /// <summary>
+    /// Can be relative to home ('~').
+    /// </summary>
     string Directory { get; }
     public string FileName { get; }
-    public string FilePath
+    string AbsoluteDirectory
     {
         get
         {
-            return Directory + FileName;
+            return new string(Directory).Replace("~",
+                    Environment.GetFolderPath(Environment.SpecialFolder.UserProfile));
+        }
+    }
+    public string AbsoluteFilePath
+    {
+        get
+        {
+            return AbsoluteDirectory + FileName;
         }
     }
 
@@ -60,36 +71,37 @@ class Index
 
     /// <summary>
     /// </summary>
-    public Task WriteToIndex(IProgress<float> progressRatio,
+    public async Task WriteToIndex(IProgress<float> progressRatio,
         List<TextureMetadata> data)
     {
-        return Task.Run(() =>
-            {
-                Console.WriteLine(FilePath);
-                var fileStream = File.Open(FilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
-                {
-                    IndexData index = new();
-                    index.InitializeFromMetadata(data);
-                    new XmlSerializer(typeof(IndexData)).Serialize(fileStream, index);
-                }
-            }
-        );
+        Console.WriteLine(AbsoluteFilePath);
+
+        if (!System.IO.Directory.Exists(AbsoluteDirectory))
+        {
+            System.IO.Directory.CreateDirectory(AbsoluteDirectory);
+        }
+
+        var fileStream = File.Open(AbsoluteFilePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
+        {
+            IndexData index = new();
+            index.InitializeFromMetadata(data);
+            new XmlSerializer(typeof(IndexData)).Serialize(fileStream, index);
+        }
+        fileStream.Close();
     }
 
 
-    public Task<IndexData?> ReadFromIndex(IProgress<float> progressRatio)
+    public async Task<IndexData?> ReadFromIndex(IProgress<float> progressRatio)
     {
-        return Task.Run(() =>
-            {
-                IndexData? R_IndexData = new IndexData();
+        IndexData? R_IndexData = new IndexData();
 
-                var fileStream = File.Open(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                XmlSerializer serializer = new(typeof(IndexData));
-                R_IndexData = (IndexData?)serializer.Deserialize(fileStream);
-                progressRatio.Report(0.5f);
+        var fileStream = File.Open(AbsoluteFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
 
-                return R_IndexData;
-            });
+        XmlSerializer serializer = new(typeof(IndexData));
+        R_IndexData = (IndexData?)serializer.Deserialize(fileStream);
+        progressRatio.Report(0.5f);
+
+        return R_IndexData;
     }
 
 
@@ -97,7 +109,7 @@ class Index
 
 
 /// <summary>
-/// Ser/DeSerialization target.
+/// Deserialization target.
 /// </summary>
 public class IndexData
 {

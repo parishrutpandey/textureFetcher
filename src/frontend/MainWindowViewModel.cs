@@ -1,24 +1,107 @@
+using System.Threading;
 using System;
-using System.Collections.Generic;
+using Avalonia.Controls;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-
+using Avalonia.Threading;
+using Fastenshtein;
+using System.Collections.Generic;
 namespace TextureFetcher;
 
 
 public class MainWindowViewModel
 {
-    public Model Model;
-    public ObservableCollection<Model.MetadataSearchResultItem> SearchResultList { get; set; }
-    public MainWindowViewModel(Model _model)
+    private Model Model;
+    private string _SearchText;
+    private string SearchText
     {
-        Model = _model;
-        Model.Initialize();
-        SearchResultList = Model.metadataSearchResults;
+        get
+        {
+            return _SearchText;
+        }
+        set
+        {
+            _SearchText = value;
+            Search(value);
+        }
     }
 
-    public void FetchAmbientCG()
+
+    private ObservableCollection<MetadataSearchResultItem> SearchResultList { get; }
+
+
+    public MainWindowViewModel(in Model _model)
     {
-        Model.SyncAmbientCG().Wait();
+        LoadIndexFromDisk();
+        Model = _model;
+        _SearchText = "";
+        SearchResultList = new();
+    }
+
+
+    public Task FetchAmbientCG()
+    {
+        return Task.Run(() =>
+            {
+                Model.SyncAmbientCG().Wait();
+            });
+    }
+
+
+    public Task LoadIndexFromDisk()
+    {
+        return Task.Run(() =>
+            {
+                Model.LoadFromDisk().Wait();
+                if (Model.inMemoryCache == null)
+                {
+                    throw new Exception("Index loading failed.");
+                }
+                Search(SearchText);
+            });
+    }
+
+
+    private void Search(string query)
+    {
+        if(Model.inMemoryCache == null)
+            throw new Exception("In Memory Cache Null");
+
+        List<TextureMetadata> searchResult = Searcher.Search(query, Model.inMemoryCache);
+    }
+
+
+    public Task SearchAsync(string query)
+    {
+        return Task.Run(() =>
+            {
+                Search(query);
+            });
+    }
+
+
+    private struct MetadataSearchResultItem
+    {
+        public string Name { get; set; }
+        public int DimensionX { get; set; }
+        public int DimensionY { get; set; }
+        public string TagsCommaSeperated { get; set; }
+
+
+        public static MetadataSearchResultItem
+            GenerateFromMetadataItem(TextureMetadata metadata)
+        {
+            var R_Item = new MetadataSearchResultItem();
+            R_Item.DimensionX = metadata.dimensionX;
+            R_Item.DimensionY = metadata.dimensionY;
+            R_Item.Name = metadata.name;
+
+            R_Item.TagsCommaSeperated = "";
+            foreach (var tag in metadata.tags)
+            {
+                R_Item.TagsCommaSeperated += " " + tag;
+            }
+            return R_Item;
+        }
     }
 }

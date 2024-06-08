@@ -8,13 +8,12 @@
     d:DesignHeight="750"
     x:Class="TextureFetcher.MainWindow"
     Title="TextureFetcher"
-    ExtendClientAreaToDecorationsHint="True"
-    ExtendClientAreaTitleBarHeightHint="-1"
+    ExtendClientAreaTitleBarHeightHint="1"
     CanResize="True"
 >
     <Grid
-        Name="MenuAndRestDivider"
-        RowDefinitions="30, *"
+        Name="MenuContentStatus"
+        RowDefinitions="10, *, 10"
         Margin="4">
         <Grid
             Name="Menu"
@@ -30,8 +29,14 @@
                         Header="Menu"
                     >
                         <MenuItem
-                            Header="Fetch AmbientCG"
+                            Header="Fetch AmbientCG from Internet"
                             Command="{Binding FetchAmbientCG}"
+                            DragDrop.AllowDrop="True"
+                        >
+                        </MenuItem>
+                        <MenuItem
+                            Header="Load Index"
+                            Command="{Binding LoadIndexFromDisk}"
                             DragDrop.AllowDrop="True"
                         >
                         </MenuItem>
@@ -58,6 +63,7 @@
                 >
                     <TextBox
                         x:Name="SearchTerm"
+                        Text="{Binding SearchText}"
                         Grid.Row="0"
                         AcceptsReturn="True"
                     >
@@ -93,7 +99,6 @@
             <Panel
                 Name="Preview"
                 Grid.Column="2"
-                Background="White"
             >
             </Panel>
         </Grid>

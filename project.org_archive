@@ -58,3 +58,26 @@ Understand Avalonia data binding.
 * DONE Implement ambientcg results.
 CLOSED: [2024-06-05 Wed 11:18]
 ** DOING Understand async programming csharp.
+* DONE Index
+CLOSED: [2024-06-06 Thu 14:48]
+Implement index.
+* DONE Run static method from command line.
+CLOSED: [2024-05-31 Fri 15:49] Created an attributes that marks runnable methods and run them with
+a cli flag.
+Given the qualified name of a static method with built in type args, run it from the command line.
+Useful for Edit-Compile-Run debugging.
+** DONE Get a list of all static methods in project.
+CLOSED: [2024-05-31 Fri 15:49]
+Need to do this so that we can use autocomplete on command line.
+*** DONE Avalonia Logging.
+CLOSED: [2024-05-30 Thu 11:07]
+How to log in Avalonia given that debug.writeline doesn't work?
+**** DONE Solved.
+Turns out we can use console by changing OutputType to Exe in the csproj instead of Winexe.
+There are 4 types of output types:
+- Library.
+- Module.
+- Exe.
+- Winexe.
+* DONE Threads
+CLOSED: [2024-06-07 Fri 09:28]
