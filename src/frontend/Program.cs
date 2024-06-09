@@ -54,8 +54,6 @@ class Program
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
     {
-        var l = new System.Diagnostics.ConsoleTraceListener();
-        Trace.Listeners.Add(l);
         return AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()

@@ -5,6 +5,8 @@ using System.Net.Http;
 using System;
 using NetVips;
 using System.Threading.Tasks;
+using Avalonia.Media.Imaging;
+using NetVips.Extensions;
 
 namespace TextureFetcher;
 
@@ -12,7 +14,13 @@ namespace TextureFetcher;
 
 partial class AmbientCGProvider : ITextureProvider
 {
-    public string GetWebsiteName()
+    public string GetIdentifier()
+    {
+        return "ambientCG";
+    }
+
+
+    public string GetName()
     {
         return "ambientCG";
     }
@@ -36,25 +44,6 @@ partial class AmbientCGProvider : ITextureProvider
     }
 
 
-    [DebugUsage]
-    public static void test()
-    {
-
-        string _requestString =
-            $"https://ambientcg.com/api/v2/full_json?"
-            + "type=Material&include=tagData,dimensionsData";
-
-
-        Console.WriteLine(new StreamReader(
-            new HttpClient().GetAsync(
-                _requestString
-            )
-            .Result.Content.ReadAsStream()
-        )
-            .ReadToEnd());
-
-    }
-
     public async Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress)
     {
         List<TextureMetadata> returnValue = new();
@@ -62,8 +51,6 @@ partial class AmbientCGProvider : ITextureProvider
         {
             int numberOfEntriesReadPerIteration = 250;
             int offset = numberOfEntriesReadPerIteration * iteration;
-
-
 
             HttpJsonResponseTarget? httpDeserializedResponse;
             {
@@ -107,13 +94,16 @@ partial class AmbientCGProvider : ITextureProvider
     }
 
 
-    public async Task<Image> GetThumbnail(string identifier, int lod, IProgress<float> progress)
+    public async Task<Bitmap> GetThumbnail(string identifier, int lod, IProgress<float> progress)
     {
         var httpClient = new HttpClient();
+        Console.WriteLine("1");
         var response = await httpClient.GetAsync(
                 $"https://ambientcg.com/api/v2/full_json?q={identifier}&include=imageData");
+        Console.WriteLine("2");
         HttpJsonResponseTarget? jsonResponse = await JsonSerializer.
             DeserializeAsync<HttpJsonResponseTarget>(response.Content.ReadAsStream());
+        Console.WriteLine("3");
         if (jsonResponse == null)
         {
             throw new Exception("Unable to deserialize http response.");
@@ -142,9 +132,12 @@ partial class AmbientCGProvider : ITextureProvider
                 throw new Exception("lod must be 0, 1, 2 or 3");
         }
         var thumbnailResponse = await httpClient.GetAsync(thumbnailUrlToFetch);
+        Console.WriteLine("4");
         var thumbNailByteArray = await thumbnailResponse.Content.ReadAsByteArrayAsync();
+        Console.WriteLine("5");
         Image image = Image.NewFromBuffer(thumbNailByteArray);
-        return image;
+
+        return new Bitmap(new MemoryStream(thumbNailByteArray));
     }
 
 

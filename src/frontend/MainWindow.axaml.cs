@@ -29,5 +29,11 @@ public partial class MainWindow : Window
         this.Close();
     }
 
+    private void SelectionChanged(object sender, SelectionChangedEventArgs args)
+    {
+        // HACK: Need to provide base interface for MainWindowViewModel and cast this to that.
+        (this.DataContext as MainWindowViewModel).OnSelectionChanged(args);
+    }
+
     public string ButtonName { get; set; }
 }

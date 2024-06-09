@@ -81,3 +81,28 @@ There are 4 types of output types:
 - Winexe.
 * DONE Threads
 CLOSED: [2024-06-07 Fri 09:28]
+* DONE Basic
+CLOSED: [2024-06-07 Fri 17:45]
+* DONE BetterQuery
+CLOSED: [2024-06-07 Fri 17:44]
+* DONE Fuzzy
+CLOSED: [2024-06-08 Sat 06:44]
+Implement simple fuzzy search.
+- Use fastenshtein.
+- Use fuzzysharp.
+* TODO [#B] InformationPreview
+* DONE [#A] ImagePreview
+CLOSED: [2024-06-09 Sun 12:01]
+:LOGBOOK:
+CLOCK: [2024-06-08 Sat 19:05]
+:END:
+- Load and allow preemption in case selection changed.
+* DONE [BUG] Dimensions
+CLOSED: [2024-06-08 Sat 18:44]
+:LOGBOOK:
+CLOCK: [2024-06-08 Sat 17:39]
+:END:
+Correct dimensions in x and y.
+- On disk index does not contain dimensions. Either seriealization is wrong or we are parsing downloaded data wrong.
+  - Wrong data parsing.
+Fixed. We misunderstood verbatim string format. '@'.

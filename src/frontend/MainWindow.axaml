@@ -12,8 +12,8 @@
     CanResize="True"
 >
     <Grid
-        Name="MenuContentStatus"
-        RowDefinitions="10, *, 10"
+        Name="Menu_and_Content_and_Status"
+        RowDefinitions="20, *, 20"
         Margin="4">
         <Grid
             Name="Menu"
@@ -83,12 +83,14 @@
                     Grid.Row="1"
                 >
                     <DataGrid Name="SearchResultList"
+                        SelectionMode="Single"
                         AutoGenerateColumns="True"
                         CanUserReorderColumns="True"
                         CanUserResizeColumns="True"
                         CanUserSortColumns="True"
                         IsReadOnly="True"
                         ItemsSource="{Binding SearchResultList}"
+                        SelectionChanged="SelectionChanged"
                     />
                 </Grid>
             </Grid>
@@ -97,9 +99,16 @@
                 ResizeDirection="Columns"
             />
             <Panel
-                Name="Preview"
+                Name="PreviewImage"
                 Grid.Column="2"
             >
+                <Grid
+                    RowDefinitions="*,*">
+                    <Image
+                        Source="{Binding Preview}"
+                    >
+                    </Image>
+                </Grid>
             </Panel>
         </Grid>
     </Grid>

@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 using Avalonia.Threading;
 using Fastenshtein;
 using System.Collections.Generic;
+using Avalonia.Media.Imaging;
+using System.ComponentModel;
 namespace TextureFetcher;
 
 
-public class MainWindowViewModel
+public class MainWindowViewModel : INotifyPropertyChanged
 {
     private Model Model;
     private string _SearchText;
-    private string SearchText
+    public string SearchText
     {
         get
         {
@@ -26,16 +28,51 @@ public class MainWindowViewModel
         }
     }
 
+    private Bitmap? preview;
 
+    public Bitmap Preview
+    {
+        get
+        {
+            return preview;
+        }
+        set
+        {
+            preview = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Preview)));
+        }
+    }
+
+    // TODO: Make public. Or should we?
     private ObservableCollection<MetadataSearchResultItem> SearchResultList { get; }
 
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     public MainWindowViewModel(in Model _model)
     {
-        LoadIndexFromDisk();
+        LoadCacheFromDisk();
         Model = _model;
         _SearchText = "";
         SearchResultList = new();
+        Preview = new("./512.png");
+    }
+
+
+    private Task updateThumbnail(string id)
+    {
+        return Task.Run(() =>
+            {
+                var prov = new AmbientCGProvider();
+                Preview = prov.GetThumbnail(id, 2, new Progress<float>()).Result;
+            });
+    }
+
+
+    public Task OnSelectionChanged(SelectionChangedEventArgs args)
+    {
+        var dataGrid = args.Source as DataGrid;
+        var idOfSelection = ((MetadataSearchResultItem)dataGrid.SelectedItem).Name;
+        return updateThumbnail(idOfSelection);
     }
 
 
@@ -48,7 +85,7 @@ public class MainWindowViewModel
     }
 
 
-    public Task LoadIndexFromDisk()
+    public Task LoadCacheFromDisk()
     {
         return Task.Run(() =>
             {
@@ -65,13 +102,13 @@ public class MainWindowViewModel
 
     private void Search(string query)
     {
-        if(Model.inMemoryCache == null)
+        if (Model.inMemoryCache == null)
             throw new Exception("In Memory Cache Null");
 
         List<TextureMetadata> searchResult = Searcher.Search(query, Model.inMemoryCache);
 
         SearchResultList.Clear();
-        foreach(var result in searchResult)
+        foreach (var result in searchResult)
         {
             SearchResultList.Add(MetadataSearchResultItem.GenerateFromMetadataItem(result));
         }

@@ -36,7 +36,6 @@ public class Model
     public async Task LoadFromDisk()
     {
         var data = await this.defaultIndex.ReadFromIndex(new Progress<float>());
-        Console.WriteLine("SDFSDF");
         if (data == null || data.Data == null)
             throw new Exception("Failed to Read Index File");
         this.inMemoryCache = data.Data;

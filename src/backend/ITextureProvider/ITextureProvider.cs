@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using NetVips;
 using System.Threading.Tasks;
+using Avalonia.Media.Imaging;
 
 namespace TextureFetcher;
 
 
 public interface ITextureProvider
 {
-    public string GetWebsiteName();
+    public string GetIdentifier();
+    public string GetName();
     public string GetWebsiteUrl();
     public Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress);
 
@@ -19,7 +21,7 @@ public interface ITextureProvider
     /// Should be less than 50 KB
     /// Should be less than 10 KB
     /// </summary>
-    public Task<Image> GetThumbnail(string identifier, int mip, IProgress<float> progress);
+    public Task<Bitmap> GetThumbnail(string identifier, int mip, IProgress<float> progress);
 }
 
 

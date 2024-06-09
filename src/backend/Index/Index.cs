@@ -75,12 +75,10 @@ partial class Index
         List<TextureMetadata> data)
     {
         Console.WriteLine(AbsoluteFilePath);
-
         if (!System.IO.Directory.Exists(AbsoluteDirectory))
         {
             System.IO.Directory.CreateDirectory(AbsoluteDirectory);
         }
-
         var fileStream = File.Open(AbsoluteFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
         {
             IndexData index = new();
@@ -94,7 +92,6 @@ partial class Index
     public async Task<IndexData?> ReadFromIndex(IProgress<float> progressRatio)
     {
         IndexData? R_IndexData = new IndexData();
-
         var fileStream = File.Open(AbsoluteFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
         XmlSerializer serializer = new(typeof(IndexData));
         R_IndexData = (IndexData?)serializer.Deserialize(fileStream);
