@@ -13,7 +13,7 @@
 >
     <Grid
         Name="Menu_and_Content_and_Status"
-        RowDefinitions="20, *, 20"
+        RowDefinitions="40, *, 400"
         Margin="4">
         <Grid
             Name="Menu"
@@ -36,7 +36,7 @@
                         </MenuItem>
                         <MenuItem
                             Header="Load Index"
-                            Command="{Binding LoadIndexFromDisk}"
+                            Command="{Binding LoadCacheFromDisk}"
                             DragDrop.AllowDrop="True"
                         >
                         </MenuItem>
@@ -45,7 +45,7 @@
             </Grid>
         </Grid>
         <Grid
-            Name="Main"
+            Name="Content"
             Grid.Row="1"
             ColumnDefinitions="*,2,*"
             Margin="4"
@@ -110,6 +110,30 @@
                     </Image>
                 </Grid>
             </Panel>
+        </Grid>
+        <Grid
+            Name="StatusBar"
+            Grid.Row="2"
+        >
+            <DockPanel>
+                <Border
+                    DockPanel.Dock="Top"
+                    BorderBrush="Black"
+                    BorderThickness="2"
+                >
+                    <Label
+                    >
+                        Logs
+                    </Label>
+                </Border>
+                <ScrollViewer>
+                    <TextBlock
+                        Text="{Binding LogText}"
+                        MaxLines="2000"
+                    >
+                    </TextBlock>
+                </ScrollViewer>
+            </DockPanel>
         </Grid>
     </Grid>
 </Window>

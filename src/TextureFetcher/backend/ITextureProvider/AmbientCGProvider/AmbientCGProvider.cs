@@ -97,13 +97,10 @@ partial class AmbientCGProvider : ITextureProvider
     public async Task<Bitmap> GetThumbnail(string identifier, int lod, IProgress<float> progress)
     {
         var httpClient = new HttpClient();
-        Console.WriteLine("1");
         var response = await httpClient.GetAsync(
                 $"https://ambientcg.com/api/v2/full_json?q={identifier}&include=imageData");
-        Console.WriteLine("2");
         HttpJsonResponseTarget? jsonResponse = await JsonSerializer.
             DeserializeAsync<HttpJsonResponseTarget>(response.Content.ReadAsStream());
-        Console.WriteLine("3");
         if (jsonResponse == null)
         {
             throw new Exception("Unable to deserialize http response.");
@@ -132,9 +129,7 @@ partial class AmbientCGProvider : ITextureProvider
                 throw new Exception("lod must be 0, 1, 2 or 3");
         }
         var thumbnailResponse = await httpClient.GetAsync(thumbnailUrlToFetch);
-        Console.WriteLine("4");
         var thumbNailByteArray = await thumbnailResponse.Content.ReadAsByteArrayAsync();
-        Console.WriteLine("5");
         Image image = Image.NewFromBuffer(thumbNailByteArray);
 
         return new Bitmap(new MemoryStream(thumbNailByteArray));
