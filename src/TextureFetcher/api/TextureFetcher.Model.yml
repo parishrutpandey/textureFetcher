@@ -1,0 +1,688 @@
+### YamlMime:ManagedReference
+items:
+- uid: TextureFetcher.Model
+  commentId: T:TextureFetcher.Model
+  id: Model
+  parent: TextureFetcher
+  children:
+  - TextureFetcher.Model.#ctor
+  - TextureFetcher.Model.LoadFromDisk
+  - TextureFetcher.Model.SyncAmbientCG
+  - TextureFetcher.Model.inMemoryCache
+  - TextureFetcher.Model.logEvents
+  langs:
+  - csharp
+  - vb
+  name: Model
+  nameWithType: Model
+  fullName: TextureFetcher.Model
+  type: Class
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: Model
+    path: backend/Model.cs
+    startLine: 9
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public class Model
+    content.vb: Public Class Model
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: TextureFetcher.Model.inMemoryCache
+  commentId: F:TextureFetcher.Model.inMemoryCache
+  id: inMemoryCache
+  parent: TextureFetcher.Model
+  langs:
+  - csharp
+  - vb
+  name: inMemoryCache
+  nameWithType: Model.inMemoryCache
+  fullName: TextureFetcher.Model.inMemoryCache
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: inMemoryCache
+    path: backend/Model.cs
+    startLine: 12
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public List<TextureMetadata>? inMemoryCache
+    return:
+      type: System.Collections.Generic.List{TextureFetcher.TextureMetadata}
+    content.vb: Public inMemoryCache As List(Of TextureMetadata)
+- uid: TextureFetcher.Model.logEvents
+  commentId: F:TextureFetcher.Model.logEvents
+  id: logEvents
+  parent: TextureFetcher.Model
+  langs:
+  - csharp
+  - vb
+  name: logEvents
+  nameWithType: Model.logEvents
+  fullName: TextureFetcher.Model.logEvents
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: logEvents
+    path: backend/Model.cs
+    startLine: 13
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public ObservableCollection<LogEvent> logEvents
+    return:
+      type: System.Collections.ObjectModel.ObservableCollection{Serilog.Events.LogEvent}
+    content.vb: Public logEvents As ObservableCollection(Of LogEvent)
+- uid: TextureFetcher.Model.#ctor
+  commentId: M:TextureFetcher.Model.#ctor
+  id: '#ctor'
+  parent: TextureFetcher.Model
+  langs:
+  - csharp
+  - vb
+  name: Model()
+  nameWithType: Model.Model()
+  fullName: TextureFetcher.Model.Model()
+  type: Constructor
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: .ctor
+    path: backend/Model.cs
+    startLine: 16
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public Model()
+    content.vb: Public Sub New()
+  overload: TextureFetcher.Model.#ctor*
+  nameWithType.vb: Model.New()
+  fullName.vb: TextureFetcher.Model.New()
+  name.vb: New()
+- uid: TextureFetcher.Model.SyncAmbientCG
+  commentId: M:TextureFetcher.Model.SyncAmbientCG
+  id: SyncAmbientCG
+  parent: TextureFetcher.Model
+  langs:
+  - csharp
+  - vb
+  name: SyncAmbientCG()
+  nameWithType: Model.SyncAmbientCG()
+  fullName: TextureFetcher.Model.SyncAmbientCG()
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: SyncAmbientCG
+    path: backend/Model.cs
+    startLine: 33
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public Task SyncAmbientCG()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SyncAmbientCG() As Task
+  overload: TextureFetcher.Model.SyncAmbientCG*
+- uid: TextureFetcher.Model.LoadFromDisk
+  commentId: M:TextureFetcher.Model.LoadFromDisk
+  id: LoadFromDisk
+  parent: TextureFetcher.Model
+  langs:
+  - csharp
+  - vb
+  name: LoadFromDisk()
+  nameWithType: Model.LoadFromDisk()
+  fullName: TextureFetcher.Model.LoadFromDisk()
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/Model.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: LoadFromDisk
+    path: backend/Model.cs
+    startLine: 41
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public Task LoadFromDisk()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function LoadFromDisk() As Task
+  overload: TextureFetcher.Model.LoadFromDisk*
+references:
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  href: TextureFetcher.html
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.List{TextureFetcher.TextureMetadata}
+  commentId: T:System.Collections.Generic.List{TextureFetcher.TextureMetadata}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TextureMetadata>
+  nameWithType: List<TextureMetadata>
+  fullName: System.Collections.Generic.List<TextureFetcher.TextureMetadata>
+  nameWithType.vb: List(Of TextureMetadata)
+  fullName.vb: System.Collections.Generic.List(Of TextureFetcher.TextureMetadata)
+  name.vb: List(Of TextureMetadata)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.ObjectModel.ObservableCollection{Serilog.Events.LogEvent}
+  commentId: T:System.Collections.ObjectModel.ObservableCollection{Serilog.Events.LogEvent}
+  parent: System.Collections.ObjectModel
+  definition: System.Collections.ObjectModel.ObservableCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  name: ObservableCollection<LogEvent>
+  nameWithType: ObservableCollection<LogEvent>
+  fullName: System.Collections.ObjectModel.ObservableCollection<Serilog.Events.LogEvent>
+  nameWithType.vb: ObservableCollection(Of LogEvent)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of Serilog.Events.LogEvent)
+  name.vb: ObservableCollection(Of LogEvent)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  - name: <
+  - uid: Serilog.Events.LogEvent
+    name: LogEvent
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Serilog.Events.LogEvent
+    name: LogEvent
+    isExternal: true
+  - name: )
+- uid: System.Collections.ObjectModel.ObservableCollection`1
+  commentId: T:System.Collections.ObjectModel.ObservableCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  name: ObservableCollection<T>
+  nameWithType: ObservableCollection<T>
+  fullName: System.Collections.ObjectModel.ObservableCollection<T>
+  nameWithType.vb: ObservableCollection(Of T)
+  fullName.vb: System.Collections.ObjectModel.ObservableCollection(Of T)
+  name.vb: ObservableCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.ObjectModel.ObservableCollection`1
+    name: ObservableCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.ObjectModel
+  commentId: N:System.Collections.ObjectModel
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.ObjectModel
+  nameWithType: System.Collections.ObjectModel
+  fullName: System.Collections.ObjectModel
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.ObjectModel
+    name: ObjectModel
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.objectmodel
+- uid: TextureFetcher.Model.#ctor*
+  commentId: Overload:TextureFetcher.Model.#ctor
+  href: TextureFetcher.Model.html#TextureFetcher_Model__ctor
+  name: Model
+  nameWithType: Model.Model
+  fullName: TextureFetcher.Model.Model
+  nameWithType.vb: Model.New
+  fullName.vb: TextureFetcher.Model.New
+  name.vb: New
+- uid: TextureFetcher.Model.SyncAmbientCG*
+  commentId: Overload:TextureFetcher.Model.SyncAmbientCG
+  href: TextureFetcher.Model.html#TextureFetcher_Model_SyncAmbientCG
+  name: SyncAmbientCG
+  nameWithType: Model.SyncAmbientCG
+  fullName: TextureFetcher.Model.SyncAmbientCG
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: TextureFetcher.Model.LoadFromDisk*
+  commentId: Overload:TextureFetcher.Model.LoadFromDisk
+  href: TextureFetcher.Model.html#TextureFetcher_Model_LoadFromDisk
+  name: LoadFromDisk
+  nameWithType: Model.LoadFromDisk
+  fullName: TextureFetcher.Model.LoadFromDisk

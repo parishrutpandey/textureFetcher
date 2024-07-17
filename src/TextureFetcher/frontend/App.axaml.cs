@@ -1,15 +1,14 @@
-using System;
-using Serilog.Sinks;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using Live.Avalonia;
 using Serilog;
 using Serilog.Sinks.InMemory;
 
 namespace TextureFetcher;
 
-public partial class App : Application
+public partial class App : Application, ILiveView
 {
     public override void Initialize()
     {
@@ -19,28 +18,55 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        setupSerilog();
+        if (Debugger.IsAttached || IsProduction())
         {
-            var ApplicationModel = new Model();
-            MainWindowViewModel MainWindowViewModel = new(ApplicationModel);
-            desktop.MainWindow = new MainWindow();
-            desktop.MainWindow.DataContext = MainWindowViewModel;
+            setupMainWindowWithoutHotReload();
+        }
+        else
+        {
+            setupMainWindowWithHotReload();
         }
         base.OnFrameworkInitializationCompleted();
-        setupSerilog();
+
+
+        void setupMainWindowWithHotReload()
+        {
+            // Needs changing.
+            setupMainWindowWithoutHotReload();
+        }
+
+
+        void setupMainWindowWithoutHotReload()
+        {
+            var mainWindow = new MainWindow()
+            {
+                DataContext = new MainWindowViewModel(new Model())
+            };
+            mainWindow.Show();
+        }
+    }
+
+
+    private static bool IsProduction()
+    {
+#if DEBUG
+        return false;
+#else
+        return true;
+#endif
     }
 
 
     private void setupSerilog()
     {
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console()
-            .WriteTo.InMemory()
-            .WriteTo.SubscribeableSink()
+        Serilog.Log.Logger = new LoggerConfiguration()
+            .WriteTo.Console().MinimumLevel.Verbose()
+            .WriteTo.SubscribeableSink().MinimumLevel.Verbose()
             .CreateLogger();
 
 
-        // Since Avalonia writes to Serilog.
+        // Since Avalonia writes to System Trace.
         _redirectSystemTraceToSerilog();
 
 
@@ -49,5 +75,11 @@ public partial class App : Application
             var listener = new SerilogTraceListener.SerilogTraceListener("Avalonia");
             System.Diagnostics.Trace.Listeners.Add(listener);
         }
+    }
+
+
+    public object CreateView(Window window)
+    {
+        return null;
     }
 }

@@ -1,0 +1,6 @@
+[submodule "src/--force"]
+	path = src/--force
+	url = https://github.com/AvaloniaUI/Avalonia.Markup.Declarative/
+[submodule "src/Avalonia.Markup.Declarative"]
+	path = src/Avalonia.Markup.Declarative
+	url = https://github.com/AvaloniaUI/Avalonia.Markup.Declarative/

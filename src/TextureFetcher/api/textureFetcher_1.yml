@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: textureFetcher
+  commentId: N:textureFetcher
+  id: textureFetcher
+  children:
+  - textureFetcher.frontend
+  langs:
+  - csharp
+  - vb
+  name: textureFetcher
+  nameWithType: textureFetcher
+  fullName: textureFetcher
+  type: Namespace
+  assemblies:
+  - textureFetcher
+references:
+- uid: textureFetcher.frontend
+  commentId: T:textureFetcher.frontend
+  href: textureFetcher.frontend.html
+  name: frontend
+  nameWithType: frontend
+  fullName: textureFetcher.frontend

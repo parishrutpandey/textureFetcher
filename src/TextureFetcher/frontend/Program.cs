@@ -1,18 +1,12 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using Avalonia;
-using Avalonia.Logging;
-using System.Collections.Generic;
+﻿using Avalonia;
 using System;
 using System.CommandLine;
 using System.CommandLine.Completions;
 using System.Diagnostics;
 using System.Reflection;
-using System.IO;
 
 
 namespace TextureFetcher;
-
 
 class Program
 {
@@ -32,7 +26,7 @@ class Program
         else
         {
             BuildAvaloniaApp()
-            .StartWithClassicDesktopLifetime(null);
+                .StartWithClassicDesktopLifetime(null);
         }
     }
 
@@ -42,9 +36,9 @@ class Program
     {
         var rootCommand = new RootCommand();
         var debugRunMethod = new Option<string>
-            (name: "--debugrun",
-             description: "Run a static method in the assembly by name."
-            );
+        (name: "--debugrun",
+            description: "Run a static method in the assembly by name."
+        );
         rootCommand.AddOption(debugRunMethod);
         rootCommand.SetHandler(_Main_delegate, debugRunMethod);
         rootCommand.Invoke(args);

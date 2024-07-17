@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Core;
@@ -13,12 +12,15 @@ namespace TextureFetcher;
 /// </summary>
 class SubscribeableSink : ILogEventSink
 {
-    // Singleton pattern.
+    // Singleton.
     public static SubscribeableSink Instance { get; }
 
     public Action<Serilog.Events.LogEvent>? LogEvent { get; set; }
 
-    static SubscribeableSink() => Instance = new();
+    static SubscribeableSink()
+    {
+        Instance = new();
+    }
 
 
     // Singleton pattern.
@@ -27,7 +29,6 @@ class SubscribeableSink : ILogEventSink
 
     void ILogEventSink.Emit(Serilog.Events.LogEvent logEvent)
     {
-        System.Reflection.MethodBase? caller = (new System.Diagnostics.StackTrace()).GetFrame(1)!.GetMethod();
         this.LogEvent?.Invoke(logEvent);
     }
 }

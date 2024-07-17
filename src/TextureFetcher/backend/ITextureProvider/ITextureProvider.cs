@@ -1,10 +1,28 @@
 using System;
 using System.Collections.Generic;
-using NetVips;
+using System.Drawing;
+using System.IO;
 using System.Threading.Tasks;
-using Avalonia.Media.Imaging;
 
 namespace TextureFetcher;
+
+
+
+
+public class Material
+{
+    public Bitmap? Albedo;
+    public Bitmap? Roughness;
+    public Bitmap? Metalness;
+    public Bitmap? Specular;
+    public Bitmap? Height;
+    public Bitmap? NormalDX;
+    public Bitmap? NormalGL;
+    public Bitmap? AmbientOcclusion;
+    public Bitmap? BentNormal;
+}
+
+
 
 
 public interface ITextureProvider
@@ -13,16 +31,15 @@ public interface ITextureProvider
     public string GetName();
     public string GetWebsiteUrl();
     public Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress);
+    public Task<Bitmap> GetThumbnail(string identifier, int mip, IProgress<float> progress);
 
     /// <summary>
-    /// Image returned should be as large as the <param name="mip"> allows.
-    /// Should be less than 1 MB
-    /// Should be less than 250 KB
-    /// Should be less than 50 KB
-    /// Should be less than 10 KB
+    /// Returns Decoded <see cref="Material"/> from <paramref name="downloadData"/>
     /// </summary>
-    public Task<Bitmap> GetThumbnail(string identifier, int mip, IProgress<float> progress);
+    public Task<Material> GenerateMaterialFromDownload(Stream downloadData);
 }
+
+
 
 
 /// <summary>
@@ -34,19 +51,55 @@ public struct TextureMetadata
     /// Usually domain name of website. <br/>
     /// Example: ambientcg.com
     /// </summary>
-    public string sourceIdentifier;
+    public string SourceIdentifier { get; set; }
+
     /// <summary>
-    /// This identifier should be unique for the <see cref="sourceIdentifier"/>. <br/>
+    /// This identifier should be unique for the <see cref="SourceIdentifier"/>. <br/>
     /// Will be used to query further information about this texture.
     /// </summary>
-    public string identifier { get; set; }
-    public string name { get; set; }
-    public List<string> tags { get; set; }
-    public int dimensionX { get; set; }
-    public int dimensionY { get; set; }
-    public float physicalDimensionsInMetresX;
-    public float physicalDimensionsInMetresY;
-    public List<DownloadOption> availableDownloadOptions { get; set; }
+    public string Identifier { get; set; }
+
+    public string Name { get; set; }
+
+    public List<string> Tags { get; set; }
+
+    public int DimensionX { get; set; }
+
+    public int DimensionY { get; set; }
+
+    public float PhysicalDimensionsInMetresX;
+
+    public float PhysicalDimensionsInMetresY;
+
+    public List<DownloadOption> AvailableDownloadOptions { get; set; }
+
+    public List<MapAvailability> mapAvailability { get; set; }
+
+
+
+
+    public struct MapAvailability
+    {
+        public Map MapName { get; }
+
+        public Availability Availability_ { get; }
+
+
+        public MapAvailability(Map mapName, Availability mapAvailability)
+        {
+            MapName = mapName;
+            Availability_ = mapAvailability;
+        }
+
+        public enum Availability
+        {
+            Available,
+            NotAvailable,
+            Unknown
+        }
+    }
+
+
 
 
     public struct DownloadOption
@@ -55,9 +108,24 @@ public struct TextureMetadata
         FileType filetype;
         bool isCompressed;
 
+        [Flags]
         public enum FileType
         {
             zip,
         }
+    }
+
+    [Flags]
+    public enum Map
+    {
+        Albedo,
+        Metalness,
+        Roughness,
+        Specular,
+        NormalGL,
+        NormalDX,
+        Height,
+        AmbientOcclusion,
+        BentNormal,
     }
 }

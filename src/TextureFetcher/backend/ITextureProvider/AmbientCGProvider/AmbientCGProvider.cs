@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System;
-using NetVips;
 using System.Threading.Tasks;
-using Avalonia.Media.Imaging;
-using NetVips.Extensions;
+using System.Drawing;
 
 namespace TextureFetcher;
 
@@ -32,14 +30,16 @@ partial class AmbientCGProvider : ITextureProvider
     }
 
 
-    private TextureMetadata GenerateMetadataFromJsonElement(in HttpJsonResponseTarget.ResponseElement element)
+    private TextureMetadata generateMetadataFromJsonElement(in HttpJsonResponseTarget.ResponseElement element)
     {
         var metadata = new TextureMetadata();
-        metadata.name = element.assetId ?? "";
-        metadata.tags = new(element.tags ?? new());
-        metadata.dimensionX = element.dimensionX.Value;
-        metadata.dimensionY = element.dimensionY.Value;
-        metadata.identifier = element.assetId ?? "";
+        metadata.Identifier = element.assetId ?? "";
+        metadata.Name = element.assetId ?? "";
+        metadata.Tags = new(element.tags ?? new());
+        metadata.DimensionX = element.dimensionX!.Value;
+        metadata.DimensionY = element.dimensionY!.Value;
+        metadata.PhysicalDimensionsInMetresX = 0;
+        metadata.PhysicalDimensionsInMetresY = 0;
         return metadata;
     }
 
@@ -47,6 +47,7 @@ partial class AmbientCGProvider : ITextureProvider
     public async Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress)
     {
         List<TextureMetadata> returnValue = new();
+        
         for (int iteration = 0; ; iteration++)
         {
             int numberOfEntriesReadPerIteration = 250;
@@ -56,37 +57,44 @@ partial class AmbientCGProvider : ITextureProvider
             {
                 string requestString =
                     $"https://ambientcg.com/api/v2/full_json?"
-                    + "type=Material&include=tagData,dimensionsData"
+                    + "type=Material&include=tagData,dimensionsData,downloadData"
                     + $"&limit={numberOfEntriesReadPerIteration}"
                     + $"&offset={offset}";
 
-                httpDeserializedResponse =
-                    JsonSerializer.Deserialize<HttpJsonResponseTarget>(
-                        JsonDocument.Parse(
-                            new StreamReader(
-                                new HttpClient().GetAsync(
-                                    requestString
+                try {
+                    httpDeserializedResponse =
+                        JsonSerializer.Deserialize<HttpJsonResponseTarget>(
+                            JsonDocument.Parse(
+                                new StreamReader(
+                                    new HttpClient().GetAsync(
+                                        requestString
+                                    )
+                                    .Result.Content.ReadAsStream()
                                 )
-                                .Result.Content.ReadAsStream()
+                                    .ReadToEnd()
                             )
-                                .ReadToEnd()
                         )
-                    )
-                ;
+                    ;
+                }
+                catch (Exception e)
+                {
+                    Logger.Log(e.ToString());
+                    throw e;
+                }
             }
 
             if (httpDeserializedResponse == null)
             {
+                Logger.Log("ERROR");
                 throw new Exception("Unable to deserialze json response.");
             }
 
-            // TODO: Ensure null correctness.
             if (httpDeserializedResponse.foundAssets.Count == 0)
                 break;
 
             foreach (var asset in httpDeserializedResponse.foundAssets)
             {
-                var metadata = this.GenerateMetadataFromJsonElement(asset);
+                var metadata = this.generateMetadataFromJsonElement(asset);
                 returnValue.Add(metadata);
             }
         }
@@ -130,21 +138,12 @@ partial class AmbientCGProvider : ITextureProvider
         }
         var thumbnailResponse = await httpClient.GetAsync(thumbnailUrlToFetch);
         var thumbNailByteArray = await thumbnailResponse.Content.ReadAsByteArrayAsync();
-        Image image = Image.NewFromBuffer(thumbNailByteArray);
 
         return new Bitmap(new MemoryStream(thumbNailByteArray));
     }
 
-
-    [TextureFetcher.DebugUsage]
-    public static void ambientcgprovider()
+    public Task<Material> GenerateMaterialFromDownload(Stream downloadData)
     {
-        AmbientCGProvider prov = new();
-        Progress<float> progress = new();
-        var result = prov.GetTextureMetadata(progress).Result;
-
-        JsonSerializerOptions opts = new() { WriteIndented = true };
-        var json = JsonSerializer.Serialize(result, opts);
-        File.WriteAllText("./testfile.json", json);
+        throw new NotImplementedException();
     }
 }

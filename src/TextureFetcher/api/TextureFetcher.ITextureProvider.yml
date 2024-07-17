@@ -1,0 +1,463 @@
+### YamlMime:ManagedReference
+items:
+- uid: TextureFetcher.ITextureProvider
+  commentId: T:TextureFetcher.ITextureProvider
+  id: ITextureProvider
+  parent: TextureFetcher
+  children:
+  - TextureFetcher.ITextureProvider.GetIdentifier
+  - TextureFetcher.ITextureProvider.GetName
+  - TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+  - TextureFetcher.ITextureProvider.GetThumbnail(System.String,System.Int32,System.IProgress{System.Single})
+  - TextureFetcher.ITextureProvider.GetWebsiteUrl
+  langs:
+  - csharp
+  - vb
+  name: ITextureProvider
+  nameWithType: ITextureProvider
+  fullName: TextureFetcher.ITextureProvider
+  type: Interface
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: ITextureProvider
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 9
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public interface ITextureProvider
+    content.vb: Public Interface ITextureProvider
+- uid: TextureFetcher.ITextureProvider.GetIdentifier
+  commentId: M:TextureFetcher.ITextureProvider.GetIdentifier
+  id: GetIdentifier
+  parent: TextureFetcher.ITextureProvider
+  langs:
+  - csharp
+  - vb
+  name: GetIdentifier()
+  nameWithType: ITextureProvider.GetIdentifier()
+  fullName: TextureFetcher.ITextureProvider.GetIdentifier()
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: GetIdentifier
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 11
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: string GetIdentifier()
+    return:
+      type: System.String
+    content.vb: Function GetIdentifier() As String
+  overload: TextureFetcher.ITextureProvider.GetIdentifier*
+- uid: TextureFetcher.ITextureProvider.GetName
+  commentId: M:TextureFetcher.ITextureProvider.GetName
+  id: GetName
+  parent: TextureFetcher.ITextureProvider
+  langs:
+  - csharp
+  - vb
+  name: GetName()
+  nameWithType: ITextureProvider.GetName()
+  fullName: TextureFetcher.ITextureProvider.GetName()
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: GetName
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 12
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: string GetName()
+    return:
+      type: System.String
+    content.vb: Function GetName() As String
+  overload: TextureFetcher.ITextureProvider.GetName*
+- uid: TextureFetcher.ITextureProvider.GetWebsiteUrl
+  commentId: M:TextureFetcher.ITextureProvider.GetWebsiteUrl
+  id: GetWebsiteUrl
+  parent: TextureFetcher.ITextureProvider
+  langs:
+  - csharp
+  - vb
+  name: GetWebsiteUrl()
+  nameWithType: ITextureProvider.GetWebsiteUrl()
+  fullName: TextureFetcher.ITextureProvider.GetWebsiteUrl()
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: GetWebsiteUrl
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 13
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: string GetWebsiteUrl()
+    return:
+      type: System.String
+    content.vb: Function GetWebsiteUrl() As String
+  overload: TextureFetcher.ITextureProvider.GetWebsiteUrl*
+- uid: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+  commentId: M:TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+  id: GetTextureMetadata(System.IProgress{System.Single})
+  parent: TextureFetcher.ITextureProvider
+  langs:
+  - csharp
+  - vb
+  name: GetTextureMetadata(IProgress<float>)
+  nameWithType: ITextureProvider.GetTextureMetadata(IProgress<float>)
+  fullName: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress<float>)
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: GetTextureMetadata
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 14
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: Task<List<TextureMetadata>> GetTextureMetadata(IProgress<float> progress)
+    parameters:
+    - id: progress
+      type: System.IProgress{System.Single}
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{TextureFetcher.TextureMetadata}}
+    content.vb: Function GetTextureMetadata(progress As IProgress(Of Single)) As Task(Of List(Of TextureMetadata))
+  overload: TextureFetcher.ITextureProvider.GetTextureMetadata*
+  nameWithType.vb: ITextureProvider.GetTextureMetadata(IProgress(Of Single))
+  fullName.vb: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress(Of Single))
+  name.vb: GetTextureMetadata(IProgress(Of Single))
+- uid: TextureFetcher.ITextureProvider.GetThumbnail(System.String,System.Int32,System.IProgress{System.Single})
+  commentId: M:TextureFetcher.ITextureProvider.GetThumbnail(System.String,System.Int32,System.IProgress{System.Single})
+  id: GetThumbnail(System.String,System.Int32,System.IProgress{System.Single})
+  parent: TextureFetcher.ITextureProvider
+  langs:
+  - csharp
+  - vb
+  name: GetThumbnail(string, int, IProgress<float>)
+  nameWithType: ITextureProvider.GetThumbnail(string, int, IProgress<float>)
+  fullName: TextureFetcher.ITextureProvider.GetThumbnail(string, int, System.IProgress<float>)
+  type: Method
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: GetThumbnail
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 23
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: Task<Bitmap> GetThumbnail(string identifier, int mip, IProgress<float> progress)
+    parameters:
+    - id: identifier
+      type: System.String
+    - id: mip
+      type: System.Int32
+    - id: progress
+      type: System.IProgress{System.Single}
+    return:
+      type: System.Threading.Tasks.Task{Avalonia.Media.Imaging.Bitmap}
+    content.vb: Function GetThumbnail(identifier As String, mip As Integer, progress As IProgress(Of Single)) As Task(Of Bitmap)
+  overload: TextureFetcher.ITextureProvider.GetThumbnail*
+  nameWithType.vb: ITextureProvider.GetThumbnail(String, Integer, IProgress(Of Single))
+  fullName.vb: TextureFetcher.ITextureProvider.GetThumbnail(String, Integer, System.IProgress(Of Single))
+  name.vb: GetThumbnail(String, Integer, IProgress(Of Single))
+references:
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  href: TextureFetcher.html
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher
+- uid: TextureFetcher.ITextureProvider.GetIdentifier*
+  commentId: Overload:TextureFetcher.ITextureProvider.GetIdentifier
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetIdentifier
+  name: GetIdentifier
+  nameWithType: ITextureProvider.GetIdentifier
+  fullName: TextureFetcher.ITextureProvider.GetIdentifier
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TextureFetcher.ITextureProvider.GetName*
+  commentId: Overload:TextureFetcher.ITextureProvider.GetName
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetName
+  name: GetName
+  nameWithType: ITextureProvider.GetName
+  fullName: TextureFetcher.ITextureProvider.GetName
+- uid: TextureFetcher.ITextureProvider.GetWebsiteUrl*
+  commentId: Overload:TextureFetcher.ITextureProvider.GetWebsiteUrl
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetWebsiteUrl
+  name: GetWebsiteUrl
+  nameWithType: ITextureProvider.GetWebsiteUrl
+  fullName: TextureFetcher.ITextureProvider.GetWebsiteUrl
+- uid: TextureFetcher.ITextureProvider.GetTextureMetadata*
+  commentId: Overload:TextureFetcher.ITextureProvider.GetTextureMetadata
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetTextureMetadata_System_IProgress_System_Single__
+  name: GetTextureMetadata
+  nameWithType: ITextureProvider.GetTextureMetadata
+  fullName: TextureFetcher.ITextureProvider.GetTextureMetadata
+- uid: System.IProgress{System.Single}
+  commentId: T:System.IProgress{System.Single}
+  parent: System
+  definition: System.IProgress`1
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<float>
+  nameWithType: IProgress<float>
+  fullName: System.IProgress<float>
+  nameWithType.vb: IProgress(Of Single)
+  fullName.vb: System.IProgress(Of Single)
+  name.vb: IProgress(Of Single)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{TextureFetcher.TextureMetadata}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{TextureFetcher.TextureMetadata}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<TextureMetadata>>
+  nameWithType: Task<List<TextureMetadata>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<TextureFetcher.TextureMetadata>>
+  nameWithType.vb: Task(Of List(Of TextureMetadata))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of TextureFetcher.TextureMetadata))
+  name.vb: Task(Of List(Of TextureMetadata))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: )
+  - name: )
+- uid: System.IProgress`1
+  commentId: T:System.IProgress`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  name: IProgress<T>
+  nameWithType: IProgress<T>
+  fullName: System.IProgress<T>
+  nameWithType.vb: IProgress(Of T)
+  fullName.vb: System.IProgress(Of T)
+  name.vb: IProgress(Of T)
+  spec.csharp:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: TextureFetcher.ITextureProvider.GetThumbnail*
+  commentId: Overload:TextureFetcher.ITextureProvider.GetThumbnail
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetThumbnail_System_String_System_Int32_System_IProgress_System_Single__
+  name: GetThumbnail
+  nameWithType: ITextureProvider.GetThumbnail
+  fullName: TextureFetcher.ITextureProvider.GetThumbnail
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{Avalonia.Media.Imaging.Bitmap}
+  commentId: T:System.Threading.Tasks.Task{Avalonia.Media.Imaging.Bitmap}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Bitmap>
+  nameWithType: Task<Bitmap>
+  fullName: System.Threading.Tasks.Task<Avalonia.Media.Imaging.Bitmap>
+  nameWithType.vb: Task(Of Bitmap)
+  fullName.vb: System.Threading.Tasks.Task(Of Avalonia.Media.Imaging.Bitmap)
+  name.vb: Task(Of Bitmap)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Avalonia.Media.Imaging.Bitmap
+    name: Bitmap
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Avalonia.Media.Imaging.Bitmap
+    name: Bitmap
+    isExternal: true
+  - name: )

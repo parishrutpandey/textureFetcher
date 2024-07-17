@@ -47,11 +47,9 @@ partial class Index
 
 
     /// <summary>
-    /// Throws Exception if Invalid. Invalid filenames are:
-    /// - Names with invalid characters such as '<'.
+    /// Throws Exception if Invalid. Invalid filenames are
+    /// names with invalid characters.
     /// </summary>
-    /// <param name="name"></param>
-    /// <exception cref="Exception"></exception>
     private static void IsValidFileName(string name)
     {
 
@@ -69,8 +67,6 @@ partial class Index
     }
 
 
-    /// <summary>
-    /// </summary>
     public async Task WriteToIndex(IProgress<float> progressRatio,
         List<TextureMetadata> data)
     {

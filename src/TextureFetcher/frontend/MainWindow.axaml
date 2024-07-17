@@ -1,88 +1,73 @@
 <Window
+    Title="TextureFetcher"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tf="using:TextureFetcher"
+    xmlns:ap="using:ActiproSoftware"
+    xmlns:apc="using:ActiproSoftware.UI.Avalonia.Controls"
+    xmlns:dock="using:Dock.Avalonia.Controls"
     mc:Ignorable="d"
     d:DesignWidth="1000"
     d:DesignHeight="750"
-    x:Class="TextureFetcher.MainWindow"
-    Title="TextureFetcher"
-    ExtendClientAreaTitleBarHeightHint="1"
-    CanResize="True"
->
-    <Grid
-        Name="Menu_and_Content_and_Status"
-        RowDefinitions="40, *, 400"
-        Margin="4">
+    x:Class="TextureFetcher.MainWindow">
+    <DockPanel>
         <Grid
-            Name="Menu"
-            Grid.Row="0"
-        >
+            Name="Menu_and_Content_and_Status"
+            RowDefinitions="Auto, *, 400">
             <Grid
-                ColumnDefinitions=""
-            >
-                <Menu
-                    Grid.Column="0"
-                >
-                    <MenuItem
-                        Header="Menu"
-                    >
-                        <MenuItem
-                            Header="Fetch AmbientCG from Internet"
-                            Command="{Binding FetchAmbientCG}"
-                            DragDrop.AllowDrop="True"
-                        >
-                        </MenuItem>
-                        <MenuItem
-                            Header="Load Index"
-                            Command="{Binding LoadCacheFromDisk}"
-                            DragDrop.AllowDrop="True"
-                        >
-                        </MenuItem>
-                    </MenuItem>
-                </Menu>
-            </Grid>
-        </Grid>
-        <Grid
-            Name="Content"
-            Grid.Row="1"
-            ColumnDefinitions="*,2,*"
-            Margin="4"
-        >
-            <Grid
-                Name="SearchAndResults"
-                Grid.Column="0"
-                RowDefinitions="30,*"
-                Margin="4"
-            >
+                Name="Menu"
+                Grid.Row="0">
                 <Grid
-                    Name="SearchBar"
-                    Grid.Row="0"
-                    ColumnDefinitions="*,100"
-                >
-                    <TextBox
-                        x:Name="SearchTerm"
-                        Text="{Binding SearchText}"
-                        Grid.Row="0"
-                        AcceptsReturn="True"
-                    >
-                    </TextBox>
-                    <Button
-                        Name="SearchButton"
-                        Width="100"
-                        Click="ClickHandler"
-                        Grid.Column="1"
-                        HorizontalContentAlignment="Center"
-                    >
-                        Search
-                    </Button>
+                    ColumnDefinitions="">
+                    <Menu
+                        Grid.Column="0">
+                        <MenuItem
+                            Header="Menu">
+                            <MenuItem
+                                Header="Fetch AmbientCG from Internet"
+                                Command="{Binding FetchAmbientCG}"
+                                DragDrop.AllowDrop="True">
+                            </MenuItem>
+                            <MenuItem
+                                Header="Load Index"
+                                Command="{Binding LoadCacheFromDisk}"
+                                DragDrop.AllowDrop="True">
+                            </MenuItem>
+                        </MenuItem>
+                    </Menu>
                 </Grid>
+            </Grid>
+            <Grid
+                Name="Content"
+                Grid.Row="1"
+                ColumnDefinitions="*,2,*">
                 <Grid
-                    Name="SearchResults"
-                    Grid.Row="1"
-                >
-                    <DataGrid Name="SearchResultList"
+                    Name="SearchAndResults"
+                    Grid.Column="0"
+                    RowDefinitions="40,*">
+                    <Grid
+                        Name="SearchBar"
+                        Grid.Row="0"
+                        ColumnDefinitions="*,Auto">
+                            <TextBox
+                                x:Name="SearchTerm"
+                                Text="{Binding SearchText}"
+                                Grid.Row="0"
+                                MaxLines="1"
+                                AcceptsReturn="True">
+                            </TextBox>
+                            <Button
+                                Name="SearchButton"
+                                Click="ClickHandler"
+                                Grid.Column="1"
+                                HorizontalContentAlignment="Center">
+                                Search
+                            </Button>
+                    </Grid>
+                    <DataGrid Name="SearchResultLists"
+                        Grid.Row="1"
                         SelectionMode="Single"
                         AutoGenerateColumns="True"
                         CanUserReorderColumns="True"
@@ -91,49 +76,62 @@
                         IsReadOnly="True"
                         ItemsSource="{Binding SearchResultList}"
                         SelectionChanged="SelectionChanged"
-                    />
+                            />
                 </Grid>
+                <GridSplitter
+                    Grid.Column="1"
+                    ResizeDirection="Columns" />
+                <Panel Name="TextureInformationPanel"
+                    Grid.Column="2">
+                    <Grid
+                        Name="TextureInformationGrid"
+                        RowDefinitions="*,*">
+                        <TabControl> <TabItem
+                            Header="Preview">
+                            <Image
+                                Name="PreviewImageImage"
+                                Grid.Row="0"
+                                Source="{Binding Preview}">
+                            </Image>
+                        </TabItem> </TabControl>
+
+                        <Grid Name="Information"
+                            ColumnDefinitions="*,*"
+                            Grid.Row="1">
+                            <TabControl
+                                Grid.Column="1">
+                                <TabItem Header="Download Options">
+                                    <DataGrid Name="DownloadOptions"
+                                        SelectionMode="Single"
+                                        AutoGenerateColumns="True"
+                                        CanUserReorderColumns="True"
+                                        CanUserResizeColumns="True"
+                                        CanUserSortColumns="True"
+                                        ItemsSource="{Binding DownloadOptions}"
+                                    >
+                                    </DataGrid>
+                                </TabItem>
+                            </TabControl>
+                        </Grid>
+                    </Grid>
+                </Panel>
             </Grid>
-            <GridSplitter
-                Grid.Column="1"
-                ResizeDirection="Columns"
-            />
-            <Panel
-                Name="PreviewImage"
-                Grid.Column="2"
-            >
-                <Grid
-                    RowDefinitions="*,*">
-                    <Image
-                        Source="{Binding Preview}"
-                    >
-                    </Image>
-                </Grid>
-            </Panel>
+            <Grid
+                Name="StatusBar"
+                Grid.Row="2">
+                <TabControl>
+                    <TabItem
+                        Header="Logs"
+                        >
+                        <ScrollViewer>
+                            <ListBox
+                               ItemsSource="{Binding LogText}"
+                               >
+                            </ListBox>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </Grid>
         </Grid>
-        <Grid
-            Name="StatusBar"
-            Grid.Row="2"
-        >
-            <DockPanel>
-                <Border
-                    DockPanel.Dock="Top"
-                    BorderBrush="Black"
-                    BorderThickness="2"
-                >
-                    <Label
-                    >
-                        Logs
-                    </Label>
-                </Border>
-                <ScrollViewer>
-                    <TextBlock
-                        Text="{Binding LogText}"
-                        MaxLines="2000"
-                    >
-                    </TextBlock>
-                </ScrollViewer>
-            </DockPanel>
-        </Grid>
-    </Grid>
+    </DockPanel>
 </Window>

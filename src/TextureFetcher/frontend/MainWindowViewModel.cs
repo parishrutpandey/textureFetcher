@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Avalonia.Media.Imaging;
 using System.ComponentModel;
 using System.Text;
+using System.IO;
 
 
 namespace TextureFetcher;
@@ -16,17 +17,17 @@ public class MainWindowViewModel : INotifyPropertyChanged
 {
     private Model Model;
 
-    private string _SearchText;
+    private string searchText;
 
     public string SearchText
     {
         get
         {
-            return _SearchText;
+            return searchText;
         }
         set
         {
-            _SearchText = value;
+            searchText = value;
             Search(value);
         }
     }
@@ -46,14 +47,15 @@ public class MainWindowViewModel : INotifyPropertyChanged
         }
     }
 
-    // TODO: Make public. Or should we?
     private ObservableCollection<MetadataSearchResultItem> SearchResultList { get; }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    private string? logText;
+    public Action? scrollLogToBottom { get; set; }
 
-    public string? LogText
+    private ObservableCollection<string> logText;
+
+    public ObservableCollection<string> LogText
     {
         get
         {
@@ -70,28 +72,38 @@ public class MainWindowViewModel : INotifyPropertyChanged
     private void Search(string query)
     {
         if (Model.inMemoryCache == null)
+        {
             throw new Exception("In Memory Cache Null");
+        }
 
         List<TextureMetadata> searchResult = Searcher.Search(query, Model.inMemoryCache);
+        Logger.Log(searchResult.Count + " Results found.");
 
         SearchResultList.Clear();
         foreach (var result in searchResult)
         {
             SearchResultList.Add(MetadataSearchResultItem.GenerateFromMetadataItem(result));
         }
+        Logger.Log(SearchResultList.Count.ToString());
     }
 
 
     private void SetupLogging()
     {
-        SubscribeableSink.Instance.LogEvent += (Serilog.Events.LogEvent ev) =>
+        Model.logEvents.CollectionChanged += (sender, args) =>
+        {
+            var stringBuilder = new StringBuilder();
+            foreach (var ev in args.NewItems!)
             {
-                var stringBuilder = new StringBuilder();
                 new Serilog.Formatting.Display.MessageTemplateTextFormatter
                     ("[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-                    .Format(ev, new System.IO.StringWriter(stringBuilder));
-                this.LogText += stringBuilder.ToString();
-            };
+                    .Format(ev as Serilog.Events.LogEvent,
+                        new System.IO.StringWriter(stringBuilder));
+                this.LogText.Add(stringBuilder.ToString());
+                stringBuilder.Clear();
+                scrollLogToBottom!();
+            }
+        };
     }
 
 
@@ -100,18 +112,22 @@ public class MainWindowViewModel : INotifyPropertyChanged
         return Task.Run(() =>
             {
                 var prov = new AmbientCGProvider();
-                Preview = prov.GetThumbnail(id, 2, new Progress<float>()).Result;
+                var tempStream = new MemoryStream();
+                prov.GetThumbnail(id, 2, new Progress<float>()).Result
+                       .Save(tempStream, System.Drawing.Imaging.ImageFormat.Png);
+                Preview = new Bitmap(tempStream);
             });
     }
 
 
     public MainWindowViewModel(in Model _model)
     {
-        LoadCacheFromDisk();
         Model = _model;
-        _SearchText = "";
+        searchText = "";
         SearchResultList = new();
+        logText = new ObservableCollection<string>();
         SetupLogging();
+        LoadCacheFromDisk();
     }
 
 
@@ -121,7 +137,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
         if (dataGrid == null)
             return null;
         var idOfSelection = ((MetadataSearchResultItem)dataGrid.SelectedItem).Name;
-        Logger.Log("A new log", Serilog.Events.LogEventLevel.Fatal );
+        Logger.Log("A new log", Serilog.Events.LogEventLevel.Fatal);
         return updateThumbnail(idOfSelection);
     }
 
@@ -144,6 +160,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
                 {
                     throw new Exception("Index loading failed.");
                 }
+                Logger.Log("Loading Cache from Disk");
                 Search(SearchText);
             });
     }
@@ -158,7 +175,7 @@ public class MainWindowViewModel : INotifyPropertyChanged
     }
 
 
-    private struct MetadataSearchResultItem
+    public struct MetadataSearchResultItem
     {
         public string Name { get; set; }
         public int DimensionX { get; set; }
@@ -170,12 +187,12 @@ public class MainWindowViewModel : INotifyPropertyChanged
             GenerateFromMetadataItem(TextureMetadata metadata)
         {
             var R_Item = new MetadataSearchResultItem();
-            R_Item.DimensionX = metadata.dimensionX;
-            R_Item.DimensionY = metadata.dimensionY;
-            R_Item.Name = metadata.name;
+            R_Item.DimensionX = metadata.DimensionX;
+            R_Item.DimensionY = metadata.DimensionY;
+            R_Item.Name = metadata.Name;
 
             R_Item.TagsCommaSeperated = "";
-            foreach (var tag in metadata.tags)
+            foreach (var tag in metadata.Tags)
             {
                 R_Item.TagsCommaSeperated += " " + tag;
             }

@@ -1,0 +1,257 @@
+### YamlMime:ManagedReference
+items:
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  id: TextureFetcher
+  children:
+  - TextureFetcher.App
+  - TextureFetcher.DebugUsage
+  - TextureFetcher.ITextureProvider
+  - TextureFetcher.IndexData
+  - TextureFetcher.MainWindow
+  - TextureFetcher.MainWindowViewModel
+  - TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+  - TextureFetcher.Model
+  - TextureFetcher.PositivePercent
+  - TextureFetcher.PositivePercent.InvalidPercentException
+  - TextureFetcher.ProgressContext
+  - TextureFetcher.ProgressContext.ContextItem
+  - TextureFetcher.Searcher
+  - TextureFetcher.SubscribeableSinkConfigurationExtension
+  - TextureFetcher.TestDeclarative
+  - TextureFetcher.TestDeclarativeViewModel
+  - TextureFetcher.TextureMetadata
+  - TextureFetcher.TextureMetadata.DownloadOption
+  - TextureFetcher.TextureMetadata.DownloadOption.FileType
+  - TextureFetcher.User
+  langs:
+  - csharp
+  - vb
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher
+  type: Namespace
+  assemblies:
+  - textureFetcher
+references:
+- uid: TextureFetcher.IndexData
+  commentId: T:TextureFetcher.IndexData
+  href: TextureFetcher.IndexData.html
+  name: IndexData
+  nameWithType: IndexData
+  fullName: TextureFetcher.IndexData
+- uid: TextureFetcher.ITextureProvider
+  commentId: T:TextureFetcher.ITextureProvider
+  href: TextureFetcher.ITextureProvider.html
+  name: ITextureProvider
+  nameWithType: ITextureProvider
+  fullName: TextureFetcher.ITextureProvider
+- uid: TextureFetcher.TextureMetadata
+  commentId: T:TextureFetcher.TextureMetadata
+  parent: TextureFetcher
+  href: TextureFetcher.TextureMetadata.html
+  name: TextureMetadata
+  nameWithType: TextureMetadata
+  fullName: TextureFetcher.TextureMetadata
+- uid: TextureFetcher.TextureMetadata.DownloadOption
+  commentId: T:TextureFetcher.TextureMetadata.DownloadOption
+  href: TextureFetcher.TextureMetadata.html
+  name: TextureMetadata.DownloadOption
+  nameWithType: TextureMetadata.DownloadOption
+  fullName: TextureFetcher.TextureMetadata.DownloadOption
+  spec.csharp:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  spec.vb:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+- uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  commentId: T:TextureFetcher.TextureMetadata.DownloadOption.FileType
+  parent: TextureFetcher
+  href: TextureFetcher.TextureMetadata.html
+  name: TextureMetadata.DownloadOption.FileType
+  nameWithType: TextureMetadata.DownloadOption.FileType
+  fullName: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  spec.csharp:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+    name: FileType
+    href: TextureFetcher.TextureMetadata.DownloadOption.FileType.html
+  spec.vb:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+    name: FileType
+    href: TextureFetcher.TextureMetadata.DownloadOption.FileType.html
+- uid: TextureFetcher.ProgressContext
+  commentId: T:TextureFetcher.ProgressContext
+  parent: TextureFetcher
+  href: TextureFetcher.ProgressContext.html
+  name: ProgressContext
+  nameWithType: ProgressContext
+  fullName: TextureFetcher.ProgressContext
+- uid: TextureFetcher.ProgressContext.ContextItem
+  commentId: T:TextureFetcher.ProgressContext.ContextItem
+  parent: TextureFetcher
+  href: TextureFetcher.ProgressContext.html
+  name: ProgressContext.ContextItem
+  nameWithType: ProgressContext.ContextItem
+  fullName: TextureFetcher.ProgressContext.ContextItem
+  spec.csharp:
+  - uid: TextureFetcher.ProgressContext
+    name: ProgressContext
+    href: TextureFetcher.ProgressContext.html
+  - name: .
+  - uid: TextureFetcher.ProgressContext.ContextItem
+    name: ContextItem
+    href: TextureFetcher.ProgressContext.ContextItem.html
+  spec.vb:
+  - uid: TextureFetcher.ProgressContext
+    name: ProgressContext
+    href: TextureFetcher.ProgressContext.html
+  - name: .
+  - uid: TextureFetcher.ProgressContext.ContextItem
+    name: ContextItem
+    href: TextureFetcher.ProgressContext.ContextItem.html
+- uid: TextureFetcher.PositivePercent
+  commentId: T:TextureFetcher.PositivePercent
+  href: TextureFetcher.PositivePercent.html
+  name: PositivePercent
+  nameWithType: PositivePercent
+  fullName: TextureFetcher.PositivePercent
+- uid: TextureFetcher.PositivePercent.InvalidPercentException
+  commentId: T:TextureFetcher.PositivePercent.InvalidPercentException
+  href: TextureFetcher.PositivePercent.html
+  name: PositivePercent.InvalidPercentException
+  nameWithType: PositivePercent.InvalidPercentException
+  fullName: TextureFetcher.PositivePercent.InvalidPercentException
+  spec.csharp:
+  - uid: TextureFetcher.PositivePercent
+    name: PositivePercent
+    href: TextureFetcher.PositivePercent.html
+  - name: .
+  - uid: TextureFetcher.PositivePercent.InvalidPercentException
+    name: InvalidPercentException
+    href: TextureFetcher.PositivePercent.InvalidPercentException.html
+  spec.vb:
+  - uid: TextureFetcher.PositivePercent
+    name: PositivePercent
+    href: TextureFetcher.PositivePercent.html
+  - name: .
+  - uid: TextureFetcher.PositivePercent.InvalidPercentException
+    name: InvalidPercentException
+    href: TextureFetcher.PositivePercent.InvalidPercentException.html
+- uid: TextureFetcher.Model
+  commentId: T:TextureFetcher.Model
+  parent: TextureFetcher
+  href: TextureFetcher.Model.html
+  name: Model
+  nameWithType: Model
+  fullName: TextureFetcher.Model
+- uid: TextureFetcher.Searcher
+  commentId: T:TextureFetcher.Searcher
+  href: TextureFetcher.Searcher.html
+  name: Searcher
+  nameWithType: Searcher
+  fullName: TextureFetcher.Searcher
+- uid: TextureFetcher.SubscribeableSinkConfigurationExtension
+  commentId: T:TextureFetcher.SubscribeableSinkConfigurationExtension
+  href: TextureFetcher.SubscribeableSinkConfigurationExtension.html
+  name: SubscribeableSinkConfigurationExtension
+  nameWithType: SubscribeableSinkConfigurationExtension
+  fullName: TextureFetcher.SubscribeableSinkConfigurationExtension
+- uid: TextureFetcher.DebugUsage
+  commentId: T:TextureFetcher.DebugUsage
+  href: TextureFetcher.DebugUsage.html
+  name: DebugUsage
+  nameWithType: DebugUsage
+  fullName: TextureFetcher.DebugUsage
+- uid: TextureFetcher.App
+  commentId: T:TextureFetcher.App
+  href: TextureFetcher.App.html
+  name: App
+  nameWithType: App
+  fullName: TextureFetcher.App
+- uid: TextureFetcher.MainWindow
+  commentId: T:TextureFetcher.MainWindow
+  href: TextureFetcher.MainWindow.html
+  name: MainWindow
+  nameWithType: MainWindow
+  fullName: TextureFetcher.MainWindow
+- uid: TextureFetcher.MainWindowViewModel
+  commentId: T:TextureFetcher.MainWindowViewModel
+  parent: TextureFetcher
+  href: TextureFetcher.MainWindowViewModel.html
+  name: MainWindowViewModel
+  nameWithType: MainWindowViewModel
+  fullName: TextureFetcher.MainWindowViewModel
+- uid: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+  commentId: T:TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+  parent: TextureFetcher
+  href: TextureFetcher.MainWindowViewModel.html
+  name: MainWindowViewModel.MetadataSearchResultItem
+  nameWithType: MainWindowViewModel.MetadataSearchResultItem
+  fullName: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+  spec.csharp:
+  - uid: TextureFetcher.MainWindowViewModel
+    name: MainWindowViewModel
+    href: TextureFetcher.MainWindowViewModel.html
+  - name: .
+  - uid: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+    name: MetadataSearchResultItem
+    href: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem.html
+  spec.vb:
+  - uid: TextureFetcher.MainWindowViewModel
+    name: MainWindowViewModel
+    href: TextureFetcher.MainWindowViewModel.html
+  - name: .
+  - uid: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem
+    name: MetadataSearchResultItem
+    href: TextureFetcher.MainWindowViewModel.MetadataSearchResultItem.html
+- uid: TextureFetcher.TestDeclarative
+  commentId: T:TextureFetcher.TestDeclarative
+  href: TextureFetcher.TestDeclarative.html
+  name: TestDeclarative
+  nameWithType: TestDeclarative
+  fullName: TextureFetcher.TestDeclarative
+- uid: TextureFetcher.TestDeclarativeViewModel
+  commentId: T:TextureFetcher.TestDeclarativeViewModel
+  href: TextureFetcher.TestDeclarativeViewModel.html
+  name: TestDeclarativeViewModel
+  nameWithType: TestDeclarativeViewModel
+  fullName: TextureFetcher.TestDeclarativeViewModel
+- uid: TextureFetcher.User
+  commentId: T:TextureFetcher.User
+  href: TextureFetcher.User.html
+  name: User
+  nameWithType: User
+  fullName: TextureFetcher.User
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  href: TextureFetcher.html
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher

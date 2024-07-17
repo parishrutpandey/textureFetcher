@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  commentId: T:TextureFetcher.TextureMetadata.DownloadOption.FileType
+  id: TextureMetadata.DownloadOption.FileType
+  parent: TextureFetcher
+  children:
+  - TextureFetcher.TextureMetadata.DownloadOption.FileType.zip
+  langs:
+  - csharp
+  - vb
+  name: TextureMetadata.DownloadOption.FileType
+  nameWithType: TextureMetadata.DownloadOption.FileType
+  fullName: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  type: Enum
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: FileType
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 57
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public enum TextureMetadata.DownloadOption.FileType
+    content.vb: Public Enum TextureMetadata.DownloadOption.FileType
+- uid: TextureFetcher.TextureMetadata.DownloadOption.FileType.zip
+  commentId: F:TextureFetcher.TextureMetadata.DownloadOption.FileType.zip
+  id: zip
+  parent: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  langs:
+  - csharp
+  - vb
+  name: zip
+  nameWithType: TextureMetadata.DownloadOption.FileType.zip
+  fullName: TextureFetcher.TextureMetadata.DownloadOption.FileType.zip
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: zip
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 59
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: zip = 0
+    return:
+      type: TextureFetcher.TextureMetadata.DownloadOption.FileType
+references:
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  href: TextureFetcher.html
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher
+- uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  commentId: T:TextureFetcher.TextureMetadata.DownloadOption.FileType
+  parent: TextureFetcher
+  href: TextureFetcher.TextureMetadata.html
+  name: TextureMetadata.DownloadOption.FileType
+  nameWithType: TextureMetadata.DownloadOption.FileType
+  fullName: TextureFetcher.TextureMetadata.DownloadOption.FileType
+  spec.csharp:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+    name: FileType
+    href: TextureFetcher.TextureMetadata.DownloadOption.FileType.html
+  spec.vb:
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption.FileType
+    name: FileType
+    href: TextureFetcher.TextureMetadata.DownloadOption.FileType.html

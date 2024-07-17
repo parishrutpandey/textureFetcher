@@ -1,0 +1,795 @@
+### YamlMime:ManagedReference
+items:
+- uid: TextureFetcher.TextureMetadata
+  commentId: T:TextureFetcher.TextureMetadata
+  id: TextureMetadata
+  parent: TextureFetcher
+  children:
+  - TextureFetcher.TextureMetadata.availableDownloadOptions
+  - TextureFetcher.TextureMetadata.dimensionX
+  - TextureFetcher.TextureMetadata.dimensionY
+  - TextureFetcher.TextureMetadata.identifier
+  - TextureFetcher.TextureMetadata.name
+  - TextureFetcher.TextureMetadata.physicalDimensionsInMetresX
+  - TextureFetcher.TextureMetadata.physicalDimensionsInMetresY
+  - TextureFetcher.TextureMetadata.sourceIdentifier
+  - TextureFetcher.TextureMetadata.tags
+  langs:
+  - csharp
+  - vb
+  name: TextureMetadata
+  nameWithType: TextureMetadata
+  fullName: TextureFetcher.TextureMetadata
+  type: Struct
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: TextureMetadata
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 30
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  summary: Used by <xref href="TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress%7bSystem.Single%7d)" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public struct TextureMetadata
+    content.vb: Public Structure TextureMetadata
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: TextureFetcher.TextureMetadata.sourceIdentifier
+  commentId: F:TextureFetcher.TextureMetadata.sourceIdentifier
+  id: sourceIdentifier
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: sourceIdentifier
+  nameWithType: TextureMetadata.sourceIdentifier
+  fullName: TextureFetcher.TextureMetadata.sourceIdentifier
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: sourceIdentifier
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 36
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  summary: >-
+    Usually domain name of website. <br />
+
+    Example: ambientcg.com
+  example: []
+  syntax:
+    content: public string sourceIdentifier
+    return:
+      type: System.String
+    content.vb: Public sourceIdentifier As String
+- uid: TextureFetcher.TextureMetadata.identifier
+  commentId: P:TextureFetcher.TextureMetadata.identifier
+  id: identifier
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: identifier
+  nameWithType: TextureMetadata.identifier
+  fullName: TextureFetcher.TextureMetadata.identifier
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: identifier
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 41
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  summary: >-
+    This identifier should be unique for the <xref href="TextureFetcher.TextureMetadata.sourceIdentifier" data-throw-if-not-resolved="false"></xref>. <br />
+
+    Will be used to query further information about this texture.
+  example: []
+  syntax:
+    content: public string identifier { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property identifier As String
+  overload: TextureFetcher.TextureMetadata.identifier*
+- uid: TextureFetcher.TextureMetadata.name
+  commentId: P:TextureFetcher.TextureMetadata.name
+  id: name
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: name
+  nameWithType: TextureMetadata.name
+  fullName: TextureFetcher.TextureMetadata.name
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: name
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 42
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public string name { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property name As String
+  overload: TextureFetcher.TextureMetadata.name*
+- uid: TextureFetcher.TextureMetadata.tags
+  commentId: P:TextureFetcher.TextureMetadata.tags
+  id: tags
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: tags
+  nameWithType: TextureMetadata.tags
+  fullName: TextureFetcher.TextureMetadata.tags
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: tags
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 43
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public List<string> tags { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property tags As List(Of String)
+  overload: TextureFetcher.TextureMetadata.tags*
+- uid: TextureFetcher.TextureMetadata.dimensionX
+  commentId: P:TextureFetcher.TextureMetadata.dimensionX
+  id: dimensionX
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: dimensionX
+  nameWithType: TextureMetadata.dimensionX
+  fullName: TextureFetcher.TextureMetadata.dimensionX
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: dimensionX
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 44
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public int dimensionX { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property dimensionX As Integer
+  overload: TextureFetcher.TextureMetadata.dimensionX*
+- uid: TextureFetcher.TextureMetadata.dimensionY
+  commentId: P:TextureFetcher.TextureMetadata.dimensionY
+  id: dimensionY
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: dimensionY
+  nameWithType: TextureMetadata.dimensionY
+  fullName: TextureFetcher.TextureMetadata.dimensionY
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: dimensionY
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 45
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public int dimensionY { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property dimensionY As Integer
+  overload: TextureFetcher.TextureMetadata.dimensionY*
+- uid: TextureFetcher.TextureMetadata.physicalDimensionsInMetresX
+  commentId: F:TextureFetcher.TextureMetadata.physicalDimensionsInMetresX
+  id: physicalDimensionsInMetresX
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: physicalDimensionsInMetresX
+  nameWithType: TextureMetadata.physicalDimensionsInMetresX
+  fullName: TextureFetcher.TextureMetadata.physicalDimensionsInMetresX
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: physicalDimensionsInMetresX
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 46
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public float physicalDimensionsInMetresX
+    return:
+      type: System.Single
+    content.vb: Public physicalDimensionsInMetresX As Single
+- uid: TextureFetcher.TextureMetadata.physicalDimensionsInMetresY
+  commentId: F:TextureFetcher.TextureMetadata.physicalDimensionsInMetresY
+  id: physicalDimensionsInMetresY
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: physicalDimensionsInMetresY
+  nameWithType: TextureMetadata.physicalDimensionsInMetresY
+  fullName: TextureFetcher.TextureMetadata.physicalDimensionsInMetresY
+  type: Field
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: physicalDimensionsInMetresY
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 47
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public float physicalDimensionsInMetresY
+    return:
+      type: System.Single
+    content.vb: Public physicalDimensionsInMetresY As Single
+- uid: TextureFetcher.TextureMetadata.availableDownloadOptions
+  commentId: P:TextureFetcher.TextureMetadata.availableDownloadOptions
+  id: availableDownloadOptions
+  parent: TextureFetcher.TextureMetadata
+  langs:
+  - csharp
+  - vb
+  name: availableDownloadOptions
+  nameWithType: TextureMetadata.availableDownloadOptions
+  fullName: TextureFetcher.TextureMetadata.availableDownloadOptions
+  type: Property
+  source:
+    remote:
+      path: src/TextureFetcher/backend/ITextureProvider/ITextureProvider.cs
+      branch: ambientcg-test
+      repo: https://github.com/parishrutpandey/textureFetcher.git
+    id: availableDownloadOptions
+    path: backend/ITextureProvider/ITextureProvider.cs
+    startLine: 48
+  assemblies:
+  - textureFetcher
+  namespace: TextureFetcher
+  syntax:
+    content: public List<TextureMetadata.DownloadOption> availableDownloadOptions { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{TextureFetcher.TextureMetadata.DownloadOption}
+    content.vb: Public Property availableDownloadOptions As List(Of TextureMetadata.DownloadOption)
+  overload: TextureFetcher.TextureMetadata.availableDownloadOptions*
+references:
+- uid: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+  commentId: M:TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+  isExternal: true
+  href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetTextureMetadata_System_IProgress_System_Single__
+  name: GetTextureMetadata(IProgress<float>)
+  nameWithType: ITextureProvider.GetTextureMetadata(IProgress<float>)
+  fullName: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress<float>)
+  nameWithType.vb: ITextureProvider.GetTextureMetadata(IProgress(Of Single))
+  fullName.vb: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress(Of Single))
+  name.vb: GetTextureMetadata(IProgress(Of Single))
+  spec.csharp:
+  - uid: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+    name: GetTextureMetadata
+    href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetTextureMetadata_System_IProgress_System_Single__
+  - name: (
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: <
+  - uid: System.Single
+    name: float
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: TextureFetcher.ITextureProvider.GetTextureMetadata(System.IProgress{System.Single})
+    name: GetTextureMetadata
+    href: TextureFetcher.ITextureProvider.html#TextureFetcher_ITextureProvider_GetTextureMetadata_System_IProgress_System_Single__
+  - name: (
+  - uid: System.IProgress`1
+    name: IProgress
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iprogress-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Single
+    name: Single
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.single
+  - name: )
+  - name: )
+- uid: TextureFetcher
+  commentId: N:TextureFetcher
+  href: TextureFetcher.html
+  name: TextureFetcher
+  nameWithType: TextureFetcher
+  fullName: TextureFetcher
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: TextureFetcher.TextureMetadata.sourceIdentifier
+  commentId: F:TextureFetcher.TextureMetadata.sourceIdentifier
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_sourceIdentifier
+  name: sourceIdentifier
+  nameWithType: TextureMetadata.sourceIdentifier
+  fullName: TextureFetcher.TextureMetadata.sourceIdentifier
+- uid: TextureFetcher.TextureMetadata.identifier*
+  commentId: Overload:TextureFetcher.TextureMetadata.identifier
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_identifier
+  name: identifier
+  nameWithType: TextureMetadata.identifier
+  fullName: TextureFetcher.TextureMetadata.identifier
+- uid: TextureFetcher.TextureMetadata.name*
+  commentId: Overload:TextureFetcher.TextureMetadata.name
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_name
+  name: name
+  nameWithType: TextureMetadata.name
+  fullName: TextureFetcher.TextureMetadata.name
+- uid: TextureFetcher.TextureMetadata.tags*
+  commentId: Overload:TextureFetcher.TextureMetadata.tags
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_tags
+  name: tags
+  nameWithType: TextureMetadata.tags
+  fullName: TextureFetcher.TextureMetadata.tags
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: TextureFetcher.TextureMetadata.dimensionX*
+  commentId: Overload:TextureFetcher.TextureMetadata.dimensionX
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_dimensionX
+  name: dimensionX
+  nameWithType: TextureMetadata.dimensionX
+  fullName: TextureFetcher.TextureMetadata.dimensionX
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: TextureFetcher.TextureMetadata.dimensionY*
+  commentId: Overload:TextureFetcher.TextureMetadata.dimensionY
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_dimensionY
+  name: dimensionY
+  nameWithType: TextureMetadata.dimensionY
+  fullName: TextureFetcher.TextureMetadata.dimensionY
+- uid: System.Single
+  commentId: T:System.Single
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.single
+  name: float
+  nameWithType: float
+  fullName: float
+  nameWithType.vb: Single
+  fullName.vb: Single
+  name.vb: Single
+- uid: TextureFetcher.TextureMetadata.availableDownloadOptions*
+  commentId: Overload:TextureFetcher.TextureMetadata.availableDownloadOptions
+  href: TextureFetcher.TextureMetadata.html#TextureFetcher_TextureMetadata_availableDownloadOptions
+  name: availableDownloadOptions
+  nameWithType: TextureMetadata.availableDownloadOptions
+  fullName: TextureFetcher.TextureMetadata.availableDownloadOptions
+- uid: System.Collections.Generic.List{TextureFetcher.TextureMetadata.DownloadOption}
+  commentId: T:System.Collections.Generic.List{TextureFetcher.TextureMetadata.DownloadOption}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<TextureMetadata.DownloadOption>
+  nameWithType: List<TextureMetadata.DownloadOption>
+  fullName: System.Collections.Generic.List<TextureFetcher.TextureMetadata.DownloadOption>
+  nameWithType.vb: List(Of TextureMetadata.DownloadOption)
+  fullName.vb: System.Collections.Generic.List(Of TextureFetcher.TextureMetadata.DownloadOption)
+  name.vb: List(Of TextureMetadata.DownloadOption)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: TextureFetcher.TextureMetadata
+    name: TextureMetadata
+    href: TextureFetcher.TextureMetadata.html
+  - name: .
+  - uid: TextureFetcher.TextureMetadata.DownloadOption
+    name: DownloadOption
+    href: TextureFetcher.TextureMetadata.DownloadOption.html
+  - name: )
